@@ -1,0 +1,11 @@
+set_prompt_emoji() {
+    local positive_emojis=("🌟" "🎉" "🚀" "🎈" "🔥" "💎" "🥳" "😊" "✨")
+    local negative_emojis=("😞" "😱" "💔" "😢" "👎" "😔" "😒" "😠" "🤦")
+
+    local exit_code=$?
+    if [ $exit_code -eq 0 ]; then
+        echo "${positive_emojis[RANDOM % ${#positive_emojis[@]}]}"
+    else
+        echo "${negative_emojis[RANDOM % ${#negative_emojis[@]}]}"
+    fi
+}
