@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-modules=(config bin bash)
+modules=(termux config bin bash)
 
 echo "Unstowing dotfiles..."
 for module in "${modules[@]}"; do

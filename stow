@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-modules=(bash bin config)
+modules=(bash bin config termux)
 
 echo "Stowing dotfiles..."
 for module in "${modules[@]}"; do
