@@ -1,10 +1,4 @@
-#
-# Usage: extract <file>
-# Description: extracts archived files / mounts disk images
-# Note: .dmg/hdiutil is macOS-specific.
-#
-# credit: http://nparikh.org/notes/zshrc.txt
-extract () {
+x () {
     if [ -f $1 ]; then
         case $1 in
             *.tar.bz2)  tar -jxvf $1                        ;;
@@ -26,8 +20,4 @@ extract () {
     else
         echo "'$1' is not a valid file"
     fi
-}
-
-x(){
-    extract "$@"
 }

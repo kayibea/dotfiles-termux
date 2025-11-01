@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+modules=(config bin bash)
+
+echo "Unstowing dotfiles..."
+for module in "${modules[@]}"; do
+  if [ -d "$module" ]; then
+    echo "-> Unstowing $module"
+    stow --verbose --target="$HOME" --delete "$module"
+  else
+    echo "-> Skipping $module (directory not found)"
+  fi
+done
+
+echo "All done!"
