@@ -1,7 +1,8 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 
-alias m='micro'
+alias e='$EDITOR'
+alias x='extract'
 alias cls='clear'
 alias zz='yazi'
 alias lz='lazygit'

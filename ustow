@@ -1,17 +1,5 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-
-modules=(termux config bin bash)
-
-echo "Unstowing dotfiles..."
-for module in "${modules[@]}"; do
-  if [ -d "$module" ]; then
-    echo "-> Unstowing $module"
-    stow --verbose --target="$HOME" --delete "$module"
-  else
-    echo "-> Skipping $module (directory not found)"
-  fi
-done
-
+stow --verbose -D -t $HOME */
 echo "All done!"

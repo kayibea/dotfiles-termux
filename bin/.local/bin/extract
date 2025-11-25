@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+  echo "Usage: $(basename $0) <file>"
+  exit 1
+fi
+
+FILE="$1"
+
+if [ ! -f "$FILE" ]; then
+  echo "'$FILE' is not a valid file"
+  exit 1
+fi
+
+case "$FILE" in
+  *.tar.bz2) tar -xvjf "$FILE" ;;
+  *.tar.gz) tar -xvzf "$FILE" ;;
+  *.tar.xz) tar -xvJf "$FILE" ;;
+  *.txz) tar -xvJf "$FILE" ;;
+  *.bz2) bunzip2 "$FILE" ;;
+  *.iso | *.7z) 7z x "$FILE" ;;
+  *.gz) gunzip "$FILE" ;;
+  *.tar) tar -xvf "$FILE" ;;
+  *.tbz2) tar -xvjf "$FILE" ;;
+  *.tgz) tar -xvzf "$FILE" ;;
+  *.zip | *.ZIP) unzip "$FILE" ;;
+  *.pax) pax -r <"$FILE" ;;
+  *.pax.Z) uncompress --stdout "$FILE" | pax -r ;;
+  *.rar) unrar x "$FILE" ;;
+  *.Z) uncompress "$FILE" ;;
+  *.dmg) hdiutil mount "$FILE" ;;
+  *) echo "'$FILE' cannot be extracted/mounted via extract" ;;
+esac

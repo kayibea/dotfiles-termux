@@ -1,8 +1,17 @@
+#!/usr/bin/env bash
+
 export PATH="$PATH:$HOME/.local/bin"
 
-export LUA_PATH="./?.lua;./?/init.lua;$HOME/.local/share/lua/5.4/?.lua;$HOME/.local/share/lua/5.4/?/init.lua;;"
-export LUA_CPATH="./?.so;$HOME/.local/lib/lua/5.4/?.so;;"
-export LUA_PATH="$LUA_PATH:$HOME/.luarocks/share/lua/5.4/?.lua;$HOME/.luarocks/share/lua/5.4/?/init.lua;;"
-export LUA_CPATH="$LUA_CPATH:$HOME/.luarocks/lib/lua/5.4/?.so;;"
+export LUA_PATH="$HOME/.local/share/lua/5.4/?.lua;$HOME/.luarocks/share/lua/5.4/?.lua;;"
+export LUA_CPATH="$HOME/.local/lib/lua/5.4/?.so;$HOME/.luarocks/lib/lua/5.4/?.so;;"
 
-export EDITOR="micro"
+export GOROOT="$HOME/.local/opt/go"
+export PATH="$PATH:$GOROOT/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+export ANDROID_TMPDIR="/data/local/tmp/"
+export EDITOR="hx"
+
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
