@@ -1,13 +1,13 @@
 theme = "onedark"
 
 [editor]
+true-color = true
 scrolloff = 999
 auto-info = true
 # bufferline="always"
 line-number = "relative"
 mouse = false
-true-color = true
-clipboard-provider = "x-clip"
+# clipboard-provider = "x-clip"
 trim-trailing-whitespace = true
 
 [editor.statusline]
