@@ -1,0 +1,79 @@
+theme = "onedark"
+
+[editor]
+scrolloff = 999
+auto-info = true
+# bufferline="always"
+line-number = "relative"
+mouse = false
+true-color = true
+clipboard-provider = "x-clip"
+trim-trailing-whitespace = true
+
+[editor.statusline]
+left = [
+  "mode",
+  "read-only-indicator",
+  "file-base-name",
+  "file-modification-indicator",
+]
+center = []
+right = ["diagnostics", "spinner", "position", "file-encoding", "file-type"]
+diagnostics = ["error"]
+
+[editor.lsp]
+display-inlay-hints = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+C-s = ":w"
+C-q = ":quit"
+# Move line down
+A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+# Move line up
+A-k = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+]
+# Add new line top/bottom
+C-j = "add_newline_below"
+C-k = "add_newline_above"
+# Extend multi cursor top/bottom
+A-h = "copy_selection_on_prev_line"
+A-l = "copy_selection_on_next_line"
+# Duplicate line bellow
+A-d = ["extend_to_line_bounds", "yank", "paste_after"]
+# Cancel multi cursor
+esc = ["collapse_selection", "keep_primary_selection"]
+# UNSET DEFAULT BINDS
+# Remove multi cursors
+C = "no_op"
+A-C = "no_op"
+# unset
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
+
+[keys.insert]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
