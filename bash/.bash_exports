@@ -16,3 +16,5 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
+
+export FRIDA_CORE_DEVKIT="$HOME/.frida-cdevkit"
