@@ -2,7 +2,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 alias gs='git status'
-alias fzf='fzf --layout=reverse'
 
 alias e='$EDITOR'
 alias x='extract'

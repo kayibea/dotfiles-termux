@@ -2,4 +2,5 @@
 
 set -euo pipefail
 stow --verbose -t $HOME */
+
 echo "All done!"

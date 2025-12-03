@@ -11,13 +11,7 @@ for bcfile in "$HOME"/.completions/*; do
   [ -f "$bcfile" ] && . "$bcfile"
 done
 
-# ssh-add -l >/dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519
-
 # PS1="→ "
-
-# if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-#   debian_chroot=$(cat /etc/debian_chroot)
-# fi
 
 prompt_color='\[\033[;32m\]'
 info_color='\[\033[1;34m\]'
