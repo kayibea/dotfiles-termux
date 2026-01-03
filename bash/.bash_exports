@@ -1,20 +1,24 @@
 #!/usr/bin/env bash
 
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+
 export PATH="$PATH:$HOME/.local/bin"
-
-export LUA_PATH="$HOME/.local/share/lua/5.4/?.lua;$HOME/.luarocks/share/lua/5.4/?.lua;;"
-export LUA_CPATH="$HOME/.local/lib/lua/5.4/?.so;$HOME/.luarocks/lib/lua/5.4/?.so;;"
-
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 export EDITOR="hx"
 export ANDROID_TMPDIR="/data/local/tmp/"
 
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_CONFIG_HOME="$HOME/.config"
+# export LUA_PATH="$HOME/.local/share/lua/5.4/?.lua;$HOME/.luarocks/share/lua/5.4/?.lua;;"
+# export LUA_CPATH="$HOME/.local/lib/lua/5.4/?.so;$HOME/.luarocks/lib/lua/5.4/?.so;;"
 
 # export TERM="xterm-256color"
 # export COLORTERM="truecolor"
 
-export FRIDA_CORE_DEVKIT="$HOME/.frida-cdevkit"
+# export FRIDA_CORE_DEVKIT="$HOME/.frida-cdevkit"
+
+export SSH_AGENT_ENV="$HOME/.ssh/agent.env"
+[[ -f $SSH_AGENT_ENV ]] && . $SSH_AGENT_ENV >/dev/null
+
+FZF_ALT_C_COMMAND= FZF_CTRL_T_COMMAND= eval "$(fzf --bash)"

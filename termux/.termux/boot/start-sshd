@@ -1,8 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/env bash
 
 termux-wake-lock
-
-# if ! pgrep -u "$USER" ssh-agent >/dev/null; then
-#     eval "$(ssh-agent -s)"
-# fi
 sshd
