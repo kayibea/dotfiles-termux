@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 venvs() {
   local CREATE_IF_MISSING=0
   local LIST_VENVS=0
