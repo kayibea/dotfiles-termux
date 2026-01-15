@@ -4,7 +4,7 @@ alias ...='cd ../..'
 alias gs='git status'
 alias git-lazy-commit='git commit -m "$(fortune -s || date "+%Y-%m-%d %H:%M:%S")"'
 
-lias pass-totp='sed -n '2p' | gopher-totp'
+alias pass-totp='sed -n '2p' | gopher-totp'
 alias llpg='gpg --list-key --keyid-format LONG'
 
 alias cl='clear'
