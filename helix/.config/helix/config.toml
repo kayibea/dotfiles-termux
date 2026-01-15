@@ -1,14 +1,15 @@
 theme = "onedark"
 
 [editor]
-true-color = true
 scrolloff = 999
 auto-info = true
-# bufferline="always"
-line-number = "relative"
 mouse = false
+true-color = true
+line-number = "relative"
 # clipboard-provider = "x-clip"
 trim-trailing-whitespace = true
+end-of-line-diagnostics = "warning"
+color-modes = true
 
 [editor.statusline]
 left = [
@@ -18,8 +19,8 @@ left = [
   "file-modification-indicator",
 ]
 center = []
-right = ["diagnostics", "spinner", "position", "file-encoding", "file-type"]
-diagnostics = ["error"]
+right = ["spinner", "diagnostics", "position", "file-encoding", "file-type"]
+diagnostics = ["warning", "error"]
 
 [editor.lsp]
 display-inlay-hints = false
@@ -33,8 +34,14 @@ select = "underline"
 hidden = false
 
 [keys.normal]
-C-s = ":w"
 C-q = ":quit"
+C-s = ":update"
+tab = ":buffer-next"
+S-tab = ":buffer-previous"
+esc = ["collapse_selection", "keep_primary_selection"]
+# Add new line top/bottom
+C-j = "add_newline_below"
+C-k = "add_newline_above"
 # Move line down
 A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 # Move line up
@@ -44,21 +51,13 @@ A-k = [
   "move_line_up",
   "paste_before",
 ]
-# Add new line top/bottom
-C-j = "add_newline_below"
-C-k = "add_newline_above"
 # Extend multi cursor top/bottom
 A-h = "copy_selection_on_prev_line"
 A-l = "copy_selection_on_next_line"
 # Duplicate line bellow
 A-d = ["extend_to_line_bounds", "yank", "paste_after"]
-# Cancel multi cursor
-esc = ["collapse_selection", "keep_primary_selection"]
-# UNSET DEFAULT BINDS
-# Remove multi cursors
 C = "no_op"
 A-C = "no_op"
-# unset
 up = "no_op"
 down = "no_op"
 left = "no_op"
@@ -69,6 +68,16 @@ home = "no_op"
 end = "no_op"
 
 [keys.insert]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
+
+[keys.select]
 up = "no_op"
 down = "no_op"
 left = "no_op"

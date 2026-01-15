@@ -2,7 +2,18 @@
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CONFIG_HOME="$HOME/.config"
+
+unset SSH_AGENT_PID
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
+# GNU Pass
+export PASSWORD_STORE_GENERATED_LENGTH=32
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export PASSWORD_STORE_EXTENSIONS_DIR="$PASSWORD_STORE_DIR/.extensions"
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$(go env GOPATH)/bin"
@@ -10,15 +21,15 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 export EDITOR="hx"
 export ANDROID_TMPDIR="/data/local/tmp/"
 
-# export LUA_PATH="$HOME/.local/share/lua/5.4/?.lua;$HOME/.luarocks/share/lua/5.4/?.lua;;"
-# export LUA_CPATH="$HOME/.local/lib/lua/5.4/?.so;$HOME/.luarocks/lib/lua/5.4/?.so;;"
+export LLS_ADDONS="$LOCAL_OPT/LLS-Addons/addons"
+export LUA_PATH="$XDG_DATA_HOME/luarocks/share/lua/5.5/?.lua;;"
+export LUA_CPATH="$XDG_DATA_HOME/luarocks/lib/lua/5.5/?.so;;"
+# export LUAROCKS_CONFIG="$XDG_CONFIG_HOME/luarocks/config.lua"
 
-# export TERM="xterm-256color"
-# export COLORTERM="truecolor"
+export TERM="xterm-256color"
+export COLORTERM="truecolor"
 
 # export FRIDA_CORE_DEVKIT="$HOME/.frida-cdevkit"
 
-export SSH_AGENT_ENV="$HOME/.ssh/agent.env"
-[[ -f $SSH_AGENT_ENV ]] && . $SSH_AGENT_ENV >/dev/null
-
+# eval "$(batman --export-env)"
 FZF_ALT_C_COMMAND= FZF_CTRL_T_COMMAND= eval "$(fzf --bash)"

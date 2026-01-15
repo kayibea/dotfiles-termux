@@ -1,22 +1,26 @@
+[[language]]
+name = "toml"
+auto-format = true
 
 [[language]]
 name = "go"
 language-servers = ["gopls", "codebook"]
 
 [[language]]
-name = "text"
-scope = "text.md"
-file-types = ["txt", "md"]
-language-servers = ["codebook"]
+name = "git-commit"
+language-servers = ["commit-lsp", "codebook"]
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "codebook"]
 
 [[language]]
 name = "html"
-formatter = { command = "prettier", args = ["--parser", "html"] }
 auto-format = true
+formatter = { command = "prettier", args = ["--parser", "html"] }
 language-servers = [
-  "vscode-html-language-server",
-  "superhtml",
   "emmet",
+  "superhtml",
   "codebook",
 ]
 
@@ -40,11 +44,13 @@ formatter = { command = "prettier", args = ["--parser", "json"] }
 [[language]]
 name = "javascript"
 auto-format = true
+formatter = { command = "prettier", args = ["--parser", "javascript"] }
 language-servers = ["typescript-language-server", "codebook"]
 
 [[language]]
 name = "typescript"
 auto-format = true
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
 language-servers = ["typescript-language-server", "codebook"]
 
 [[language]]
@@ -54,33 +60,23 @@ language-servers = ["lua-language-server", "codebook"]
 
 [[language]]
 name = "c"
-file-types = ["c", "h"]
 auto-format = true
-formatter = { command = "clang-format" }
 language-servers = ["clangd", "codebook"]
 
 [[language]]
 name = "cpp"
-file-types = ["cpp", "cc", "cxx", "hpp", "hcc", "hxx"]
-formatter = { command = "clang-format" }
 auto-format = true
+language-servers = ["clangd", "codebook"]
 
 [[language]]
 name = "bash"
+auto-format = true
 formatter = { command = "shfmt", args = ["-i", "2", "-ci"] }
-auto-format = true
+language-servers = ["bash-language-server", "codebook"]
 
-[[language]]
-name = "toml"
-auto-format = true
-
-# Language servers
-
-[language-server.lua-language-server.config.Lua.workspace]
-# library = [
-#   "${env:LLSA}/luaposix",
-# ]
-checkThirdParty = "Disable"
+[language-server.lua-language-server.config.Lua]
+runtime = { version = "Lua 5.5" }
+workspace = { checkThirdParty = "Disable" }
 
 [language-server.emmet]
 command = "emmet-language-server"

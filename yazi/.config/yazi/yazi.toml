@@ -1,3 +1,30 @@
 [mgr]
 show_hidden = true
 show_symlink = true
+
+[opener]
+# TODO: Set proper Android openers
+# vlc = [
+#   { run = 'vlc "$@"', orphan = true },
+# ]
+# feh = [
+#   { run = 'feh --auto-zoom --scale-down "$@"', orphan = true },
+# ]
+
+[open]
+rules = [
+  { mime = "text/*", use = "edit" },
+  { mime = "image/*", use = "feh" },
+  { mime = "video/*", use = "vlc" },
+  { mime = "audio/*", use = "vlc" },
+  { mime = "inode/directory", use = "cd" },
+  { mime = "application/json", use = "edit" },
+]
+
+[plugin]
+prepend_previewers = [
+  { mime = "image/*", run = "image" },
+  { mime = "video/*", run = "video" },
+  { name = "*.dds", run = "magick -define dds:alpha=on" },
+  { mime = "image/{avif,heic,jxl,svg+xml}", run = "magick" },
+]
