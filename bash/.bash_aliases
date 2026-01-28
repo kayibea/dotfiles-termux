@@ -9,6 +9,7 @@ alias llpg='gpg --list-key --keyid-format LONG'
 
 alias cl='clear'
 alias man='batman'
+alias ff='fastfetch'
 # alias reload='source $HOME/.bashrc && echo ".bashrc reloaded !"'
 
 alias e='$EDITOR'

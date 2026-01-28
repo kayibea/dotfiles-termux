@@ -11,3 +11,4 @@ gpg-connect-agent "keyinfo --ssh-list" /bye >/dev/null
 
 prompt_color='\[\033[;32m\]'
 export PS1=$prompt_color'\[\033[0;1m\]─'$prompt_color'\[\033[0m\] '
+. "$HOME/.cargo/env"
