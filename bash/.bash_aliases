@@ -1,6 +1,7 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 
+alias g='lazygit'
 alias gs='git status'
 alias git-lazy-commit='git commit -m "$(fortune -s || date "+%Y-%m-%d %H:%M:%S")"'
 
@@ -9,6 +10,7 @@ alias llpg='gpg --list-key --keyid-format LONG'
 
 alias cl='clear'
 alias man='batman'
+alias pwdc=''
 # alias reload='source $HOME/.bashrc && echo ".bashrc reloaded !"'
 
 alias e='$EDITOR'

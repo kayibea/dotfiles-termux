@@ -2,29 +2,31 @@
 set -euo pipefail
 
 if [[ $# -eq 0 ]]; then
-  echo "Usage: $(basename "$0") <file>"
+  echo "Usage:"
+  echo "    ${0##*/} <file>"
   exit 1
 fi
 
-FILE="$1"
+file="$1"
 
-if [[ ! -f "$FILE" ]]; then
-  echo "File '$FILE' does not exist or is not a regular file"
+if [[ ! -f "$file" ]]; then
+  echo "'$file' does not exist or is not a regular file" >&2
   exit 1
 fi
 
-case "$FILE" in
-  *.tar* | *.tgz | *.tbz2 | *.txz) tar xf "$FILE" ;;
-  *.zip | *.apk) unzip "$FILE" ;;
-  *.7z) 7z x "$FILE" ;;
-  *.rar) unrar x "$FILE" ;;
-  *.gz) gunzip "$FILE" ;;
-  *.bz2) bunzip2 "$FILE" ;;
-  *.xz) xz -d "$FILE" ;;
-  *.pax) pax -r <"$FILE" ;;
-  *.pax.Z) uncompress --stdout "$FILE" | pax -r ;;
-  *.Z) uncompress "$FILE" ;;
+case "$file" in
+  *.tar* | *.tgz | *.tbz2 | *.txz) tar xf "$file" ;;
+  *.zip) unzip "$file" ;;
+  *.7z) 7z x "$file" ;;
+  *.rar) unrar x "$file" ;;
+  *.gz) gunzip "$file" ;;
+  *.bz2) bunzip2 "$file" ;;
+  *.xz) xz -d "$file" ;;
+  *.pax) pax -r <"$file" ;;
+  *.pax.Z) uncompress --stdout "$file" | pax -r ;;
+  *.Z) uncompress "$file" ;;
   *)
-    echo "File '$FILE' cannot be extracted via extract"
+    echo "Failed to extract '$file'" >&2
+    exit 1
     ;;
 esac

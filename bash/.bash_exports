@@ -18,8 +18,17 @@ export PASSWORD_STORE_EXTENSIONS_DIR="$PASSWORD_STORE_DIR/.extensions"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$(go env GOPATH)/bin"
 
-export EDITOR="hx"
-export ANDROID_TMPDIR="/data/local/tmp/"
+export EDITOR="$(command -v hx 2>/dev/null | xargs basename 2>/dev/null || printf "%s" vi)"
+
+# Rust
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+
+# Node / npm
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NODE_REPL_HISTORY="$XDG_STATE_HOME/node_repl_history"
+
 
 export LLS_ADDONS="$LOCAL_OPT/LLS-Addons/addons"
 export LUA_PATH="$XDG_DATA_HOME/luarocks/share/lua/5.5/?.lua;;"
