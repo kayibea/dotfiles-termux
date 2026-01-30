@@ -39,5 +39,5 @@ export COLORTERM="truecolor"
 
 # export FRIDA_CORE_DEVKIT="$HOME/.frida-cdevkit"
 
-# eval "$(batman --export-env)"
+eval "$(batman --export-env)"
 FZF_ALT_C_COMMAND= FZF_CTRL_T_COMMAND= eval "$(fzf --bash)"

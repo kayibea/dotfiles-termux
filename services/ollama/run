@@ -1,3 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/env bash
+set -euo pipefail
 
 exec ollama serve 2>&1
