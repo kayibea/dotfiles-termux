@@ -1,0 +1,34 @@
+#!/data/data/com.termux/files/usr/bin/env bash
+set -euo pipefail
+
+[[ $# -ne 1 ]] && {
+  echo "Usage: ${0##*/} <name>" >&2
+  exit 1
+}
+
+service="$1"
+
+[[ "$service" =~ ^[a-zA-Z0-9._-]+$ ]] || {
+  echo "Invalid service name: $service" >&2
+  exit 1
+}
+
+if [[ -d "$service" ]]; then
+  echo "$service already exists" >&2
+  exit 1
+fi
+
+mkdir -p "$service/log"
+
+cat <<EOF >"$service/run"
+#!/data/data/com.termux/files/usr/bin/env bash
+set -euo pipefail
+
+echo 'running...'
+exec sleep infinity 2>&1
+EOF
+
+chmod u+x "$service/run"
+
+ln -s "$PREFIX/share/termux-services/svlogger" \
+  "$service/log/run"

@@ -1,0 +1,29 @@
+#!/data/data/com.termux/files/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: ${0##*/} <file>" >&2
+  return 1
+fi
+
+file="$1"
+shebang="${SHELL%/*}/env ${SHELL##*/}"
+
+if [[ ! -f "$file" ]]; then
+  touch "$file"
+else
+  if [[ "$(file --brief --mime-type "$file")" != text/* ]]; then
+    echo "'$file' is not a text file" >&2
+    return 1
+  fi
+fi
+
+if ! head -n1 "$file" | grep -q '^#!'; then
+  {
+    echo "#!$shebang"
+    cat "$file"
+  } >"$file.tmp" &&
+    mv "$file.tmp" "$file"
+fi
+
+chmod u+x "$file"

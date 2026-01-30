@@ -1,9 +1,8 @@
-#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/env bash
 set -euo pipefail
 
-if [[ $# -eq 0 ]]; then
-  echo "Usage:"
-  echo "    ${0##*/} <file>"
+if [[ $# -ne 1 ]]; then
+  echo "Usage: ${0##*/} <file>"
   exit 1
 fi
 
