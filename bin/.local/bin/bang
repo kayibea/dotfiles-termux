@@ -3,7 +3,7 @@ set -euo pipefail
 
 if [[ $# -ne 1 ]]; then
   echo "Usage: ${0##*/} <file>" >&2
-  return 1
+  exit 1
 fi
 
 file="$1"
@@ -14,7 +14,7 @@ if [[ ! -f "$file" ]]; then
 else
   if [[ "$(file --brief --mime-type "$file")" != text/* ]]; then
     echo "'$file' is not a text file" >&2
-    return 1
+    exit 1
   fi
 fi
 
