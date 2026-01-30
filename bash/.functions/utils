@@ -1,36 +1,65 @@
 #!/data/data/com.termux/files/usr/bin/env bash
 
+termux-new-service() {
+  service="$1"
+
+  [[ $# -ne 1 ]] && {
+    echo "Usage: termux-new-service <name>" >&2
+    return 1
+  }
+
+  [[ "$service" =~ ^[a-zA-Z0-9._-]+$ ]] || {
+    echo "Invalid service name: $service" >&2
+    return 1
+  }
+
+  if [[ -d "$service" ]]; then
+    echo "$service already exists" >&2
+    return 1
+  fi
+
+  mkdir -p "$service/log"
+
+  cat <<EOF >"$service/run"
+#!/data/data/com.termux/files/usr/bin/env bash
+set -euo pipefail
+
+echo '$service has started'
+exec sleep infinity 2>&1
+EOF
+
+  chmod u+x "$service/run"
+  ln -s "$PREFIX/share/termux-services/svlogger" \
+    "$service/log/run"
+}
+
 bang() {
   local file="$1"
-  local shebang="#!${SHELL%/*}/env ${SHELL##*/}"
+  local shebang="${SHELL%/*}/env ${SHELL##*/}"
 
-  if [[ -z "$file" ]]; then
-    echo "Usage: ${FUNCNAME[0]} <file>" >&2
+  if [[ $# -ne 1 ]]; then
+    echo "Usage: bang <file>" >&2
     return 1
   fi
 
   if [[ ! -f "$file" ]]; then
     touch "$file"
   else
-    if [[ "$(file --brief --mime-type "$file")" ~= "text/*"  ]]; then
-        echo "'$file' is not a text file" >&2
-        return 1
+    if [[ "$(file --brief --mime-type "$file")" != text/* ]]; then
+      echo "'$file' is not a text file" >&2
+      return 1
     fi
   fi
 
   if ! head -n1 "$file" | grep -q '^#!'; then
-    sed -i "1i #!$shebang" "$file"
+    {
+      echo "#!$shebang"
+      cat "$file"
+    } >"$file.tmp" &&
+      mv "$file.tmp" "$file"
   fi
 
   chmod u+x "$file"
-}
-
-
-
-nohistory() {
-  set +o history
-  HISTFILE=/dev/null
-  echo "Everyone suddenly went quiet."
 }
 
 function y() {
