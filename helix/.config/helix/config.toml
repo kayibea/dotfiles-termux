@@ -34,7 +34,6 @@ select = "underline"
 hidden = false
 
 [keys.normal]
-C-q = ":quit"
 C-s = ":update"
 tab = ":buffer-next"
 S-tab = ":buffer-previous"
