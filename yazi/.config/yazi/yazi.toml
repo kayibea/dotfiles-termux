@@ -3,20 +3,14 @@ show_hidden = true
 show_symlink = true
 
 [opener]
-# TODO: Set proper Android openers
-# vlc = [
-#   { run = 'vlc "$@"', orphan = true },
-# ]
-# feh = [
-#   { run = 'feh --auto-zoom --scale-down "$@"', orphan = true },
-# ]
+xdg = [{ run = 'xdg-open "$@"', orphan = true }]
 
 [open]
 rules = [
   { mime = "text/*", use = "edit" },
-  { mime = "image/*", use = "feh" },
-  { mime = "video/*", use = "vlc" },
-  { mime = "audio/*", use = "vlc" },
+  { mime = "image/*", use = "xdg" },
+  { mime = "video/*", use = "xdg" },
+  { mime = "audio/*", use = "xdg" },
   { mime = "inode/directory", use = "cd" },
   { mime = "application/json", use = "edit" },
 ]

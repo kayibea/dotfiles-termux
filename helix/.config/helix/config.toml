@@ -3,7 +3,7 @@ theme = "onedark"
 [editor]
 scrolloff = 999
 auto-info = true
-mouse = false
+mouse = true
 true-color = true
 line-number = "relative"
 # clipboard-provider = "x-clip"
@@ -57,31 +57,31 @@ A-l = "copy_selection_on_next_line"
 A-d = ["extend_to_line_bounds", "yank", "paste_after"]
 C = "no_op"
 A-C = "no_op"
-up = "no_op"
-down = "no_op"
-left = "no_op"
-right = "no_op"
-pageup = "no_op"
-pagedown = "no_op"
-home = "no_op"
-end = "no_op"
-
-[keys.insert]
-up = "no_op"
-down = "no_op"
-left = "no_op"
-right = "no_op"
-pageup = "no_op"
-pagedown = "no_op"
-home = "no_op"
-end = "no_op"
-
-[keys.select]
-up = "no_op"
-down = "no_op"
-left = "no_op"
-right = "no_op"
-pageup = "no_op"
-pagedown = "no_op"
-home = "no_op"
-end = "no_op"
+# up = "no_op"
+# down = "no_op"
+# left = "no_op"
+# right = "no_op"
+# pageup = "no_op"
+# pagedown = "no_op"
+# home = "no_op"
+# end = "no_op"
+#
+# [keys.insert]
+# up = "no_op"
+# down = "no_op"
+# left = "no_op"
+# right = "no_op"
+# pageup = "no_op"
+# pagedown = "no_op"
+# home = "no_op"
+# end = "no_op"
+#
+# [keys.select]
+# up = "no_op"
+# down = "no_op"
+# left = "no_op"
+# right = "no_op"
+# pageup = "no_op"
+# pagedown = "no_op"
+# home = "no_op"
+# end = "no_op"
