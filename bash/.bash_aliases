@@ -5,14 +5,13 @@ alias g='lazygit'
 alias gs='git status'
 alias git-lazy-commit='git commit -m "$(fortune -s || date "+%Y-%m-%d %H:%M:%S")"'
 
-alias pass-totp='sed -n '2p' | gopher-totp'
+# alias pass-totp='sed -n '2p' | gopher-totp'
 alias llpg='gpg --list-key --keyid-format LONG'
 
 alias cl='clear'
 alias man='batman'
 alias ff='fastfetch'
-alias pwdc=''
-# alias reload='source $HOME/.bashrc && echo ".bashrc reloaded !"'
+alias pwdc='pwd | termux-clipboard-set'
 
 alias e='$EDITOR'
 alias x='extract'
