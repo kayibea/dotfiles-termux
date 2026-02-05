@@ -9,7 +9,7 @@ Symlinked config files managed with [GNU Stow](https://www.gnu.org/software/stow
 ## Setup
 
 ```bash
-git clone https://github.com/kayibea/dotfiles-termux.git
+git clone https://github.com/kayibea/dotfiles-termux.git dotfiles
 cd dotfiles
 ```
 
@@ -44,7 +44,7 @@ Each folder maps into your home or XDG paths, e.g.:
 
 ```bash
 tmux/       → ~/.config/tmux
-bash/       → ~/ (bash/x11 configs)
+bash/       → ~/ (bash configs)
 ssh/        → ~/.ssh
 …           → …
 ```
