@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-remove=false
+REMOVE=false
 
 usage() {
   cat <<EOF
@@ -19,7 +19,7 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     -r | --remove)
       shift
-      remove=true
+      REMOVE=true
       ;;
     -h | --help)
       usage
@@ -33,7 +33,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [[ "$remove" = true ]]; then
+if [[ "$REMOVE" = true ]]; then
   stow --verbose -D -t $HOME */
 else
   stow --verbose -t $HOME */

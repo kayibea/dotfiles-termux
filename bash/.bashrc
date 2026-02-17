@@ -3,9 +3,14 @@ shopt -s nullglob
 [ -f ~/.bash_exports ] && . ~/.bash_exports
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
 
-for file in "$HOME"/.{functions,completions}/*; do
-  [ -f "$file" ] && source "$file"
+source_dirs=("$XDG_DATA_HOME/bash-completions" "$XDG_DATA_HOME/bash-helpers")
+for dir in "${source_dirs[@]}"; do
+  [[ -d "$dir" ]] || continue
+  for f in "$dir"/*; do
+    [ -f "$f" ] && . "$f"
+  done
 done
+unset source_dirs
 
 gpg-connect-agent "keyinfo --ssh-list" /bye >/dev/null
 
